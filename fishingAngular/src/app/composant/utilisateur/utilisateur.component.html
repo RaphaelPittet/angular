@@ -1,0 +1,44 @@
+<h1>Bonjour {{ name }}</h1>
+<div class="infos">
+  <p>{{adresse}}</p>
+  <p>{{age}}</p>
+  <ul>
+    <li>{{hobby.hobbyUn}}</li>
+    <li>{{hobby.hobbyDeux}}</li>
+    <li>{{hobby.hobbyTrois}}</li>
+  </ul>
+
+  <ul *ngFor ="let fish of fishs">
+    <li>name: {{fish.name}} - {{fish.size}}</li>
+  </ul>
+
+  <h1>Editor</h1>
+  <form action="">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)] = "name" name="name">
+    </div>
+    <div>
+      <label for="age">Age</label>
+      <input type="number" [(ngModel)] = "age" name="age">
+    </div>
+    <div>
+      <label for="adresse">Adresse</label>
+      <input type="text" [(ngModel)] = "adresse" name="adresse">
+    </div>
+    <div>
+      <label for="hobbyUn">hobby1</label>
+      <input type="text"[(ngModel)] = "hobby.hobbyUn" name="hobbyUn">
+    </div>
+    <div>
+      <label for="hobbyDeux">hobby2</label>
+      <input type="text" [(ngModel)] = "hobby.hobbyDeux" name="hobbyDeux">
+    </div>
+    <div>
+      <label for="hobbyTrois">hobby3</label>
+      <input type="text" [(ngModel)] = "hobby.hobbyTrois" name="hobbyTrois">
+    </div>
+  </form>
+
+  <button (click)="onClick()">plus d'infos</button>
+</div>
