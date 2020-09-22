@@ -11,11 +11,13 @@ import {AuthService} from './service/auth.service';
 import { SingleCatchComponent } from './composant/single-catch/single-catch.component';
 import {FourOhFourComponent} from './composant/four-oh-four/four-oh-four.component';
 import {AuthGuardService} from './service/auth-guard.service';
+import { AddFishComponent } from './composant/add-fish/add-fish.component';
 
 
 const appRoutes: Routes = [
   { path: 'profil', canActivate:[AuthGuardService], component: ProfilViewComponent},
-  { path: 'auth', component: AuthComponent},
+  { path: 'auth',  canActivate: [AuthGuardService], component: AuthComponent},
+  { path: 'add-fish', component: AddFishComponent},
   { path: 'fishs/:id', canActivate:[AuthGuardService], component: SingleCatchComponent},
   { path: '', component: AuthComponent},
   {path: 'not-found', component: FourOhFourComponent},
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     AuthComponent,
     SingleCatchComponent,
     FourOhFourComponent,
+    AddFishComponent,
   ],
   imports: [
     BrowserModule,
