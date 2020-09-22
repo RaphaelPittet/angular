@@ -20,7 +20,6 @@ export class AuthComponent implements OnInit {
   onSignIn(){
     this.authService.signIn().then(() => {
       this.authStatus = this.authService.isAuth;
-      console.log(this.authService.isAuth);
       this.router.navigate(['profil']);
     });
   }

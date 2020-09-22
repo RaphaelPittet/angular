@@ -12,11 +12,14 @@ import { SingleCatchComponent } from './composant/single-catch/single-catch.comp
 import {FourOhFourComponent} from './composant/four-oh-four/four-oh-four.component';
 import {AuthGuardService} from './service/auth-guard.service';
 import { AddFishComponent } from './composant/add-fish/add-fish.component';
+import {UserService} from './service/user.service';
+import {UserListComponent} from './composant/user-list/user-list.component';
 
 
 const appRoutes: Routes = [
-  { path: 'profil', canActivate:[AuthGuardService], component: ProfilViewComponent},
+  { path: 'profil', component: ProfilViewComponent},
   { path: 'auth',  canActivate: [AuthGuardService], component: AuthComponent},
+  { path: 'profil-list', canActivate: [AuthGuardService], component: UserListComponent},
   { path: 'add-fish', component: AddFishComponent},
   { path: 'fishs/:id', canActivate:[AuthGuardService], component: SingleCatchComponent},
   { path: '', component: AuthComponent},
@@ -42,7 +45,8 @@ const appRoutes: Routes = [
   providers: [
     DonneesService,
     AuthService,
-    AuthGuardService
+    AuthGuardService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
