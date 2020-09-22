@@ -1,0 +1,2 @@
+<button class="btn btn-danger" *ngIf="authStatus" (click)="onSignOut()">log out</button>
+<button class="btn btn-success" *ngIf="!authStatus" (click)="onSignIn()">login</button>

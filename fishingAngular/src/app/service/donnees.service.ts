@@ -5,17 +5,25 @@ import { Injectable } from '@angular/core';
 })
 export class DonneesService {
 
-  name: string;
-  size: number;
-  city: string
-  constructor() { }
+
+  fishs = [
+    {id: 1, name: 'truite' , size: 54, city: 'fribourg'},
+    {id: 2, name: 'saumon' , size: 54, city: 'fribourg'},
+    {id: 3, name: 'alvin' , size: 54, city: 'fribourg'}
+  ];
+  id: number;
+  constructor() {
+  }
 
   getFishs()
   {
-    return [
-    {name: 'truite' , size: 54, city: 'fribourg'},
-    {name: 'saumon' , size: 54, city: 'fribourg'},
-    {name: 'alvin' , size: 54, city: 'fribourg'}
-  ];
+    return this.fishs ;
+  }
+
+  getFishById(id: number){
+    const fish = this.fishs.find((fishsObject) =>{
+      return fishsObject.id === id;
+    });
+    return fish;
   }
 }
